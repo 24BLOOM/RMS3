@@ -34,6 +34,8 @@
         </div><!-- /.col -->
     </div>
 
+    <img src="Public/img/120_1.jpeg"/>
+
 <script type="text/javascript">
 
 let ajax = function(event) {
