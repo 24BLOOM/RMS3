@@ -17,7 +17,7 @@ class LoginController extends Controller{
     public function check(){
         
         if(IS_POST){
-            //echo 'receive a post';
+            
             $login   =   D('user');
            
             $condition['id']    =   $_POST['id'];

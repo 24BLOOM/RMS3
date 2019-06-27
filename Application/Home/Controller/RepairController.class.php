@@ -18,7 +18,7 @@ class RepairController extends Controller{
     public function addRepair(){
 
         //if($_SESSION['admin'] && $_SESSION['type']==1){
-        //if(1){
+        if(1){
             $repair_record   =   D('repair_record');
 
             $form['repair_date']           =   I('post.repair_date');
@@ -71,18 +71,38 @@ class RepairController extends Controller{
         //if($_SESSION['admin']  && $_SESSION['type']==1){
         if(1){
             $repair_record   =   D('repair_record');
-
+            $client          =   D('client');
+            $maintenance_recode   =   D('maintenance_recode');
             $page    	   =   I('get.page');
 
 		    echo $page ;
         
         
-		    $data = $repair_record->page($page.',10')->field('client_id,order_num,repair_status')->select();
+            $repairOrders = $repair_record->page($page.',10')->field('client_id,order_num,repair_date,repair_status')->select();
+            print_r($repairOrders);
+            
 
-            if($data){
+            
+            $result     =       array();
+            foreach ($repairOrders as $key => $value) {
+                $condition1['client_id']     =       $value['client_id'];
+                $condition2['order_num']     =      $value['order_num'];
+                $contact   =       $client->where($condition1)->field('contact')->find();
+                print_r($contact);
+                $maintainer    =    $maintenance_recode->where($condition2)->field('maintainer')->find();
+                print_r($maintainer);
+                $value=array_merge((array)$value,(array)$contact,(array)$maintainer);
+                //print_r($value);
+                array_push($result,$value);
+                //dump((int)($value));
+            }
+
+
+            if($result){
                 http_response_code(200);
 		    	$reply['status']  =   200;
-                $reply['repairslist']  =  $data;
+                $reply['data']['repairslist']  =  $result;
+                print_r($reply);
                 $this->ajaxReturn($reply);
                 //略
             }else{
