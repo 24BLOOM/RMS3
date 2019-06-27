@@ -1,0 +1,50 @@
+[ 2019-06-27T09:55:20+08:00 ] 127.0.0.1 /RMS3/index.php/Home/client/getClient.html?client_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000657s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000882s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001056s ]
+SQL: SHOW COLUMNS FROM `rms_client` [ RunTime:0.0011s ]
+SQL: SELECT `company`,`telephone`,`address`,`contact` FROM `rms_client` WHERE `client_id` = '2' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2019-06-27T09:55:24+08:00 ] 127.0.0.1 /RMS3/index.php/Home/client/getClient.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `rms_client` [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `rms_repair_record` [ RunTime:0.0009s ]
+SQL: SELECT `client_id`,`company`,`telephone`,`address`,`contact` FROM `rms_client`  [ RunTime:0.0005s ]
+SQL: SELECT `order_num`,`repair_date`,`repair_status` FROM `rms_repair_record` WHERE `client_id` = '1'  [ RunTime:0.0004s ]
+SQL: SELECT `order_num`,`repair_date`,`repair_status` FROM `rms_repair_record` WHERE `client_id` = '2'  [ RunTime:0.0004s ]
+SQL: SELECT `order_num`,`repair_date`,`repair_status` FROM `rms_repair_record` WHERE `client_id` = '4'  [ RunTime:0.0004s ]
+
+[ 2019-06-27T10:14:13+08:00 ] 127.0.0.1 /RMS3/index.php/Home/login/check.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000641s ]
+SQL: SHOW COLUMNS FROM `rms_user` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`user_password`,`user_name`,`type` FROM `rms_user` WHERE `id` = 55 AND `user_password` = '555555' LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] session_start(): A session had already been started - ignoring C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 31 行.
+NOTIC: [8] Undefined index: id C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 40 行.
+NOTIC: [8] Undefined index: identify C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 45 行.
+
+[ 2019-06-27T10:14:40+08:00 ] 127.0.0.1 /RMS3/index.php/Home/login/check.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000707s ]
+SQL: SHOW COLUMNS FROM `rms_user` [ RunTime:0.0008s ]
+SQL: SELECT `id`,`user_password`,`user_name`,`type` FROM `rms_user` WHERE `id` = 55 AND `user_password` = '555555' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] session_start(): A session had already been started - ignoring C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 31 行.
+NOTIC: [8] Undefined index: id C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 40 行.
+NOTIC: [8] Undefined index: identify C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 45 行.
+
