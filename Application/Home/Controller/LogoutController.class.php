@@ -9,7 +9,7 @@ class LogoutController extends Controller {
             echo 'pppp';
             session(null); // 清空当前的session
             
-            $this->redirect('/');
+           
         }
     }
 
