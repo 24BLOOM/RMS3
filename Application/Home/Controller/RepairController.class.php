@@ -21,16 +21,25 @@ class RepairController extends Controller{
         if(1){
             $repair_record   =   D('repair_record');
 
-            $form['repair_date']           =   I('post.repair_date');
-            $form['repair_status']    	   =   I('post.repairStatus');
-    		$form['product_type']    	   =   I('post.product_type');
-    		$form['product_brand']    	   =   I('post.product_brand');
-    		$form['product_sysId']    	   =   I('post.product_sysId');
-    		$form['dev_error']    	   	   =   I('post.dev_error');
-    		$form['other']    	   		   =   I('post.orther');
-    		$form['client_id']    	       =   I('post.client_id');
+            //$form['repair_date']           =   I('post.repair_date');
+            //$form['repair_status']    	   =   I('post.repairStatus');
+    		//$form['product_type']    	   =   I('post.product_type');
+    		//$form['product_brand']    	   =   I('post.product_brand');
+    		//$form['product_sysId']    	   =   I('post.product_sysId');
+    		//$form['dev_error']    	   	   =   I('post.dev_error');
+    		//$form['other']    	   		   =   I('post.orther');
+            //$form['client_id']    	       =   I('post.client_id');
+            
+            $form['repair_date']           =   json_decode(file_get_contents('php://input'),true)['repair_date'];
+            $form['repair_status']    	   =   json_decode(file_get_contents('php://input'),true)['repair_status'];
+    		$form['product_type']    	   =   json_decode(file_get_contents('php://input'),true)['product_type'];
+    		$form['product_brand']    	   =   json_decode(file_get_contents('php://input'),true)['product_brand'];
+    		$form['product_sysId']    	   =   json_decode(file_get_contents('php://input'),true)['product_sysId'];
+    		$form['dev_error']    	   	   =   json_decode(file_get_contents('php://input'),true)['dev_error'];
+    		$form['other']    	   		   =   json_decode(file_get_contents('php://input'),true)['other'];
+    		$form['client_id']    	       =   json_decode(file_get_contents('php://input'),true)['client_id'];
     	
-            print_r($_POST);
+            //print_r($_POST);
             $condition['order_num'] = date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
             $result=$repair_record->where($condition)->find();
             print_r($result);

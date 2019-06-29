@@ -20,9 +20,12 @@ class LoginController extends Controller{
             
             $login   =   D('user');
            
-            $condition['id']    =   $_POST['id'];
-            $condition['user_password']=   $_POST['user_password'];
-                
+            //$condition['id']    =   $_POST['id'];
+            //$condition['user_password']=   $_POST['user_password'];
+            $condition['id']    =  json_decode(file_get_contents('php://input'),true)['id'];
+            $condition['user_password']=   json_decode(file_get_contents('php://input'),true)['user_password'];
+            echo $condition['id'].$condition['user_password'];
+
             $result    =   $login->where($condition)->field('id,user_password,user_name,type')->find();
             //echo $data['user_password'],$result['user_password'];
 

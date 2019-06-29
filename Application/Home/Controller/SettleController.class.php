@@ -20,7 +20,8 @@ class SettleController extends Controller {
         if(1){
             $repair_records    =   D('repair_record');
             
-            $condition['order_num']     =       I('post.order_num');
+            //$condition['order_num']     =       I('post.order_num');
+            $condition['order_num']     =       json_decode(file_get_contents('php://input'),true)['order_num']
             echo $condition['order_num'].'|';
             
 

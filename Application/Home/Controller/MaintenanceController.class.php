@@ -24,9 +24,13 @@ class MaintenanceController extends Controller{
             $repair_record   =   D('repair_record');
 
             //$form['assign_date']    	   =   date_create();
-            $form['assign_date']           =   I('post.assign_date');
-    		$form['maintainer']    	       =   I('post.maintainer');
-    		$form['order_num']    	   	   =   I('post.order_num');
+            //$form['assign_date']           =   I('post.assign_date');
+    		//$form['maintainer']    	       =   I('post.maintainer');
+            //$form['order_num']    	   	   =   I('post.order_num');
+            
+            $form['assign_date']           =json_decode(file_get_contents('php://input'),true)['assign_date'];   
+    		$form['maintainer']    	       =json_decode(file_get_contents('php://input'),true)['maintainer'];   
+    		$form['order_num']    	   	   =json_decode(file_get_contents('php://input'),true)['order_num'];   
             $form            = array_merge($repair_record->where('order_num='.$form['order_num'])->field('client_id')->find(),$form);   
 
             print_r($form);
@@ -152,13 +156,22 @@ class MaintenanceController extends Controller{
         if(1){
             $maintenance_recode   =   D('maintenance_recode');
 
-            $form['detect_record']    	   =   I('post.detect_record');
-    		$form['maintain_record']       =   I('post.maintain_record');
-    		$form['manual_cost']    	   =   I('post.manual_cost');
-    		$form['material_cost']    	   =   I('post.material_cost');
-    		$form['note']    	   	       =   I('post.note');
-    		$form['maintain_status']       =   I('post.maintain_status');
-            $form['order_num']    	       =   I('post.order_num');
+            //$form['detect_record']    	   =   I('post.detect_record');
+    		//$form['maintain_record']       =   I('post.maintain_record');
+    		//$form['manual_cost']    	   =   I('post.manual_cost');
+    		//$form['material_cost']    	   =   I('post.material_cost');
+    		//$form['note']    	   	       =   I('post.note');
+    		//$form['maintain_status']       =   I('post.maintain_status');
+            //$form['order_num']    	       =   I('post.order_num');
+        
+
+            $form['detect_record']    	   =        json_decode(file_get_contents('php://input'),true)['detect_record'];   
+    		$form['maintain_record']       =        json_decode(file_get_contents('php://input'),true)['maintain_record'];  
+    		$form['manual_cost']    	   =        json_decode(file_get_contents('php://input'),true)['manual_cost'];   
+    		$form['material_cost']    	   =        json_decode(file_get_contents('php://input'),true)['material_cost'];  
+            $form['note']    	   	       =        json_decode(file_get_contents('php://input'),true)['note'];       		
+            $form['maintain_status']       =        json_decode(file_get_contents('php://input'),true)['maintain_status'];   
+            $form['order_num']    	       =        json_decode(file_get_contents('php://input'),true)['order_num'];   
         
     		//dump($form);
             //die();

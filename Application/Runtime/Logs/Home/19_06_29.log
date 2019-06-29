@@ -1,0 +1,75 @@
+[ 2019-06-29T09:49:02+08:00 ] 127.0.0.1 /RMS3/index.php/Home/maintenance/assignMaintenance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001197s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001190s ]
+SQL: SHOW COLUMNS FROM `rms_maintenance_recode` [ RunTime:0.0508s ]
+SQL: SHOW COLUMNS FROM `rms_repair_record` [ RunTime:0.0044s ]
+SQL: SELECT `client_id` FROM `rms_repair_record` WHERE ( order_num=2019062610150561 ) LIMIT 1   [ RunTime:0.0044s ]
+ERR: 1062:Duplicate entry '2019062610150561' for key 'order_num'
+ [ SQL语句 ] : INSERT INTO `rms_maintenance_recode` (`client_id`,`assign_date`,`maintainer`,`order_num`) VALUES ('3','2019/6/29 12:12:45','666','2019062610150561')
+ERR: 1062:Duplicate entry '2019062610150561' for key 'order_num'
+ [ SQL语句 ] : INSERT INTO `rms_maintenance_recode` (`client_id`,`assign_date`,`maintainer`,`order_num`) VALUES ('3','2019/6/29 12:12:45','666','2019062610150561')
+
+[ 2019-06-29T09:50:09+08:00 ] 127.0.0.1 /RMS3/index.php/Home/settle/settleRepair.html?order_num=2019062699100485
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000496s ]
+SQL: SHOW COLUMNS FROM `rms_repair_record` [ RunTime:0.0023s ]
+SQL: UPDATE `rms_repair_record` SET `repair_status`='2' WHERE `order_num` = '2019062699100485' [ RunTime:0.0017s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001133s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001237s ]
+
+[ 2019-06-29T11:06:09+08:00 ] 127.0.0.1 /RMS3/index.php/Home/settle/settleRepair.html?order_num=2019062699100485
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001005s ]
+SQL: SHOW COLUMNS FROM `rms_repair_record` [ RunTime:0.0031s ]
+SQL: UPDATE `rms_repair_record` SET `repair_status`='2' WHERE `order_num` = '2019062699100485' [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000858s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000959s ]
+
+[ 2019-06-29T11:06:30+08:00 ] 127.0.0.1 /RMS3/index.php/Home/maintenance/updateMaintenance
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000447s ]
+SQL: SHOW COLUMNS FROM `rms_maintenance_recode` [ RunTime:0.0054s ]
+SQL: UPDATE `rms_maintenance_recode` SET `detect_record`='ddddd',`maintain_record`='test',`manual_cost`='339.9',`material_cost`='500.9',`note`='好好好',`maintain_status`='2',`order_num`='2019062699100485' WHERE ( order_num=2019062699100485 ) [ RunTime:0.0023s ]
+NOTIC: [8] Undefined variable: client C:\wamp64\www\RMS3\Application\Home\Controller\MaintenanceController.class.php 第 175 行.
+
+[ 2019-06-29T11:10:00+08:00 ] 127.0.0.1 /RMS3/index.php/Home/login/check.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001204s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001317s ]
+ERR: syntax error, unexpected '$result' (T_VARIABLE), expecting ',' or ';'
+
+[ 2019-06-29T11:10:20+08:00 ] 127.0.0.1 /RMS3/index.php/Home/login/check.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000800s ]
+SQL: SHOW COLUMNS FROM `rms_user` [ RunTime:0.0054s ]
+SQL: SELECT `id`,`user_password`,`user_name`,`type` FROM `rms_user` WHERE `id` = null AND `user_password` = null LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [2] Use of undefined constant err_msg - assumed 'err_msg' (this will throw an Error in a future version of PHP) C:\wamp64\www\RMS3\Application\Home\Controller\LoginController.class.php 第 68 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000986s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001093s ]
+
